@@ -32,51 +32,16 @@ function playerChoice() {
 
 function changeVal(value) {
     if (value === "rock") {
-        value = 0
-        return value
-    } else if (value === "paper") {
-        value = 1
-        return value
+        value = 0;
+        return value;
     } else if (value === "scissors") {
-        value = 2
-        return value
+        value = 1;
+        return value;
+    } else if (value === "paper") {
+        value = 2;
+        return value;
     }
 }
-
-function gameScores {
-    switch(changeVal(playerSelection) - changeVal(computerSelection)) {
-    case (0):
-        console.log("Tie.");
-        break;
-    case(-1 || 2):
-        if (playerSelection == "paper" || playerSelection == "scissors") {
-            scorePlayer++;
-            console.log("Player wins.");
-        } else {
-            scoreComputer++;
-            console.log("Computer wins.")
-        }break;
-    case(-2 || 1):
-        if (playerSelection)
-        scoreComputer++;
-        console.log("Player wins.");
-        break;
-}
-//-----------------------------------
-
-function determineWin(playerSelection, computerSelection) {
-    if (playerSelection == computerSelection) {
-        return ("Tie.");
-    } else if (playerSelection == "rock") {
-        if (computerSelection == "paper") {
-            
-        }
-    } else if (playerSelection = "paper") {
-
-    } else if (playerSelection = "scissors")
-}
-
-
 
 
 function playOneRound(playerSelection, computerSelection) {
@@ -85,18 +50,15 @@ function playOneRound(playerSelection, computerSelection) {
     console.log("User plays " + playerSelection + ". Computer plays " + computerSelection + ".");
     let scorePlayer,
         scoreComputer;
-    switch(changeVal(playerSelection) - changeVal(computerSelection)) {
-        case (0):
-            console.log("Tie.");
-            break;
-        case(-1 || 2):
-            scorePlayer++;
-            console.log("Computer wins.");
-            break;
-        case(-2 || 1):
-            scoreComputer++;
-            console.log("Player wins.");
-            break;
+    let result = (changeVal(playerSelection) - changeVal(computerSelection));
+    if (result === 0) {
+        console.log("Tie.");
+    } else if (result === 2 || result === -1){
+        scorePlayer++;
+        console.log("Player wins.");
+    } else if (result === 1 || result === -2) {
+        scoreComputer++;
+        console.log("Computer wins.");
     }
 }
 

@@ -1,8 +1,11 @@
 
 //assign/create variables
 
+let scorePlayer = 0,
+    scoreComputer = 0;
 
 //create computerChoice function
+
 function computerChoice () {
     let randomChoice = Math.floor(Math.random() * 3);
     if (randomChoice == 0) {
@@ -14,7 +17,8 @@ function computerChoice () {
     }
 }
 
-//create playerChoice function
+//allow player to choose rock, paper, or scissors
+
 function playerChoice() {
     while (true) {
         let choice = prompt("Rock, Paper, or Scissors?");
@@ -28,96 +32,55 @@ function playerChoice() {
     }
 }
 
-//turn choices into numerical format of 0,1, or 2
+//turn choices into numerical format of 0, 1, or 2
 
 function changeVal(value) {
     if (value === "rock") {
-        value = 0
-        return value
-    } else if (value === "paper") {
-        value = 1
-        return value
+        value = 0;
+        return value;
     } else if (value === "scissors") {
-        value = 2
-        return value
+        value = 1;
+        return value;
+    } else if (value === "paper") {
+        value = 2;
+        return value;
     }
 }
-
-function gameScores {
-    switch(changeVal(playerSelection) - changeVal(computerSelection)) {
-    case (0):
-        console.log("Tie.");
-        break;
-    case(-1 || 2):
-        if (playerSelection == "paper" || playerSelection == "scissors") {
-            scorePlayer++;
-            console.log("Player wins.");
-        } else {
-            scoreComputer++;
-            console.log("Computer wins.")
-        }break;
-    case(-2 || 1):
-        if (playerSelection)
-        scoreComputer++;
-        console.log("Player wins.");
-        break;
-}
-//-----------------------------------
-
-function determineWin(playerSelection, computerSelection) {
-    if (playerSelection == computerSelection) {
-        return ("Tie.");
-    } else if (playerSelection == "rock") {
-        if (computerSelection == "paper") {
-            
-        }
-    } else if (playerSelection = "paper") {
-
-    } else if (playerSelection = "scissors")
-}
-
-
-
-
-function playOneRound(playerSelection, computerSelection) {
-    computerSelection = computerChoice();
-    playerSelection = playerChoice();
-    console.log("User plays " + playerSelection + ". Computer plays " + computerSelection + ".");
-    let scorePlayer,
-        scoreComputer;
-    switch(changeVal(playerSelection) - changeVal(computerSelection)) {
-        case (0):
-            console.log("Tie.");
-            break;
-        case(-1 || 2):
-            scorePlayer++;
-            console.log("Computer wins.");
-            break;
-        case(-2 || 1):
-            scoreComputer++;
-            console.log("Player wins.");
-            break;
-    }
-}
-
-
-
-/*console.log(computerSelection);
-console.log(playerSelection);*/
 
 //create playOneRound function
 
-function playOneRound(playerSelection, computerSelection) {
+function playOneRound() {
     computerSelection = computerChoice();
     playerSelection = playerChoice();
     console.log("User plays " + playerSelection + ". Computer plays " + computerSelection + ".");
-    let scorePlayer,
-        scoreComputer;
-    
+    let result = (changeVal(playerSelection) - changeVal(computerSelection));
+    if (result === 0) {
+        console.log("Tie.");
+    } else if (result === 2 || result === -1){
+        scorePlayer++;
+        console.log("Player wins.");
+    } else if (result === 1 || result === -2) {
+        scoreComputer++;
+        console.log("Computer wins.");
     }
 }
 
-playOneRound()
-
-
 //create playGame function
+
+function playGame() {
+    alert("Let's play 5 rounds of rock paper scissors!");
+    scorePlayer = 0;
+    scoreComputer = 0;
+    for (x = 1; x <= 5; x++) {
+        playOneRound();
+        console.log("Player Score: " + scorePlayer);
+        console.log("Computer Score: " + scoreComputer);
+    } 
+    if (scorePlayer > scoreComputer) {
+        console.log("Player wins with a score of " + scorePlayer + "!")
+    } else if (scoreComputer > scorePlayer) {
+        console.log("Computer wins with a score of " + scoreComputer + "!")
+    }
+}
+
+playGame()

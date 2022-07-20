@@ -47,33 +47,6 @@ function changeVal(value) {
     }
 }
 
-<<<<<<< HEAD
-=======
-
-function playOneRound(playerSelection, computerSelection) {
-    computerSelection = computerChoice();
-    playerSelection = playerChoice();
-    console.log("User plays " + playerSelection + ". Computer plays " + computerSelection + ".");
-    let scorePlayer,
-        scoreComputer;
-    let result = (changeVal(playerSelection) - changeVal(computerSelection));
-    if (result === 0) {
-        console.log("Tie.");
-    } else if (result === 2 || result === -1){
-        scorePlayer++;
-        console.log("Player wins.");
-    } else if (result === 1 || result === -2) {
-        scoreComputer++;
-        console.log("Computer wins.");
-    }
-}
-
-
-
-/*console.log(computerSelection);
-console.log(playerSelection);*/
-
->>>>>>> 98b5add2f4948d5d488105b01bf015228b35cfe4
 //create playOneRound function
 
 function playOneRound() {

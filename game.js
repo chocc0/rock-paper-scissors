@@ -43,7 +43,7 @@ function changeVal(value) {
     }
 }
 
-//create playOneRound function
+
 function playOneRound(playerSelection, computerSelection) {
     computerSelection = computerChoice();
     playerSelection = playerChoice();
@@ -59,6 +59,23 @@ function playOneRound(playerSelection, computerSelection) {
     } else if (result === 1 || result === -2) {
         scoreComputer++;
         console.log("Computer wins.");
+    }
+}
+
+
+
+/*console.log(computerSelection);
+console.log(playerSelection);*/
+
+//create playOneRound function
+
+function playOneRound(playerSelection, computerSelection) {
+    computerSelection = computerChoice();
+    playerSelection = playerChoice();
+    console.log("User plays " + playerSelection + ". Computer plays " + computerSelection + ".");
+    let scorePlayer,
+        scoreComputer;
+    
     }
 }
 

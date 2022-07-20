@@ -43,10 +43,41 @@ function changeVal(value) {
     }
 }
 
-/*console.log(computerSelection);
-console.log(playerSelection);*/
+function gameScores {
+    switch(changeVal(playerSelection) - changeVal(computerSelection)) {
+    case (0):
+        console.log("Tie.");
+        break;
+    case(-1 || 2):
+        if (playerSelection == "paper" || playerSelection == "scissors") {
+            scorePlayer++;
+            console.log("Player wins.");
+        } else {
+            scoreComputer++;
+            console.log("Computer wins.")
+        }break;
+    case(-2 || 1):
+        if (playerSelection)
+        scoreComputer++;
+        console.log("Player wins.");
+        break;
+}
+//-----------------------------------
 
-//create playOneRound function
+function determineWin(playerSelection, computerSelection) {
+    if (playerSelection == computerSelection) {
+        return ("Tie.");
+    } else if (playerSelection == "rock") {
+        if (computerSelection == "paper") {
+            
+        }
+    } else if (playerSelection = "paper") {
+
+    } else if (playerSelection = "scissors")
+}
+
+
+
 
 function playOneRound(playerSelection, computerSelection) {
     computerSelection = computerChoice();
@@ -66,6 +97,23 @@ function playOneRound(playerSelection, computerSelection) {
             scoreComputer++;
             console.log("Player wins.");
             break;
+    }
+}
+
+
+
+/*console.log(computerSelection);
+console.log(playerSelection);*/
+
+//create playOneRound function
+
+function playOneRound(playerSelection, computerSelection) {
+    computerSelection = computerChoice();
+    playerSelection = playerChoice();
+    console.log("User plays " + playerSelection + ". Computer plays " + computerSelection + ".");
+    let scorePlayer,
+        scoreComputer;
+    
     }
 }
 

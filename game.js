@@ -1,5 +1,9 @@
+//create references
 
-//assign/create variables
+const buttons = document.querySelectorAll('button');
+const results = document.querySelector('#results')
+
+//assign/create score variables
 
 let scorePlayer = 0,
     scoreComputer = 0;
@@ -9,39 +13,24 @@ let scorePlayer = 0,
 function computerChoice () {
     let randomChoice = Math.floor(Math.random() * 3);
     if (randomChoice == 0) {
-        return "rock";
+        return "Rock";
     } else if (randomChoice == 1) {
-        return "paper";
+        return "Paper";
     } else {
-        return "scissors";
-    }
-}
-
-//allow player to choose rock, paper, or scissors
-
-function playerChoice() {
-    while (true) {
-        let choice = prompt("Rock, Paper, or Scissors?");
-        choice = choice.toLowerCase();
-        if ((choice != "rock") && (choice != "paper") && (choice != "scissors")) {
-            console.log("Invalid choice.");
-            continue;
-        } else {
-            return (choice);
-        }
+        return "Scissors";
     }
 }
 
 //turn choices into numerical format of 0, 1, or 2
 
 function changeVal(value) {
-    if (value === "rock") {
+    if (value === "Rock") {
         value = 0;
         return value;
-    } else if (value === "scissors") {
+    } else if (value === "Scissors") {
         value = 1;
         return value;
-    } else if (value === "paper") {
+    } else if (value === "Paper") {
         value = 2;
         return value;
     }
@@ -49,38 +38,50 @@ function changeVal(value) {
 
 //create playOneRound function
 
-function playOneRound() {
+function playOneRound(playerSelection) {
     computerSelection = computerChoice();
-    playerSelection = playerChoice();
     console.log("User plays " + playerSelection + ". Computer plays " + computerSelection + ".");
-    let result = (changeVal(playerSelection) - changeVal(computerSelection));
-    if (result === 0) {
-        console.log("Tie.");
-    } else if (result === 2 || result === -1){
+    let value = (changeVal(playerSelection) - changeVal(computerSelection));
+    let result = '';
+    if (value === 0) {
+        result = ("Tie.");
+    } else if (value === 2 || value === -1){
         scorePlayer++;
-        console.log("Player wins.");
-    } else if (result === 1 || result === -2) {
+        result = ("Player wins!");
+    } else if (value === 1 || value === -2) {
         scoreComputer++;
-        console.log("Computer wins.");
+        result = ("Computer wins!");
     }
+
+    let displayedResults = document.createElement('div');
+
+    displayedResults.textContent = result;
+    results.appendChild(displayedResults);
+}
+
+
+for (let button of buttons) {
+    button.addEventListener('click', function(e) {
+        playOneRound(button.className);
+    })
 }
 
 //create playGame function
-
+/*
 function playGame() {
     alert("Let's play 5 rounds of rock paper scissors!");
     scorePlayer = 0;
     scoreComputer = 0;
     for (x = 1; x <= 5; x++) {
-        playOneRound();
+        console.log(playOneRound());
         console.log("Player Score: " + scorePlayer);
         console.log("Computer Score: " + scoreComputer);
     } 
     if (scorePlayer > scoreComputer) {
-        console.log("Player wins with a score of " + scorePlayer + "!")
+        console.log("Player wins with a score of " + scorePlayer + "!");
     } else if (scoreComputer > scorePlayer) {
-        console.log("Computer wins with a score of " + scoreComputer + "!")
+        console.log("Computer wins with a score of " + scoreComputer + "!");
+    } else if (scoreComputer === scorePlayer) {
+        console.log("Both the Player and the Computer tie with a score of " + scorePlayer + "!");
     }
-}
-
-playGame()
+}*/

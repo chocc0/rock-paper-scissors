@@ -5,21 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./game.js" defer></script>
+    <link rel = "stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
+    <div id = 'heading'>
+        <div>
+            Let's play rock paper scissors!
+            First one to 5 points wins!
+        </div>
+    </div>
+
     <div id = 'choices'>
         <button class = 'Rock'>Rock</button>
         <button class = 'Paper'>Paper</button>
         <button class = 'Scissors'>Scissors</button>
     </div>
 
-    <div id = 'results'>
-        <div>Results:</div>
+    <div>Results:</div>
+        <div class = 'roundResults'></div>
+        <div class = 'scores'></div>
+        <div class = 'finalWinner'></div>
     </div>
 
-    <script>
-
-    </script>
+    <div id = 'reset'>
+        <button class = "playAgain">Play Again?</button>
+    </div>
 </body>
 </html>

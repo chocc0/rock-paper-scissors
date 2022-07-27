@@ -1,12 +1,18 @@
-//create references
+//UI references
 
-const buttons = document.querySelectorAll('button');
-const results = document.querySelector('#results')
+const buttons = document.querySelectorAll('#choices>button');
+const choices = document.getElementById('choices');
+const roundResults = document.querySelector('.roundResults');
+const scores = document.querySelector('.scores');
+const finalWinner = document.querySelector('.finalWinner');
+const reset = document.getElementById('reset')
+const playAgainBtn = document.querySelector('.playAgain')
 
-//assign/create score variables
+//when the game first begins to load
 
 let scorePlayer = 0,
     scoreComputer = 0;
+reset.style.visibility = 'hidden'
 
 //create computerChoice function
 
@@ -36,52 +42,61 @@ function changeVal(value) {
     }
 }
 
-//create playOneRound function
-
 function playOneRound(playerSelection) {
     computerSelection = computerChoice();
-    console.log("User plays " + playerSelection + ". Computer plays " + computerSelection + ".");
-    let value = (changeVal(playerSelection) - changeVal(computerSelection));
     let result = '';
+    result = ("User plays " + playerSelection + ". Computer plays " + computerSelection + ".");
+    let value = (changeVal(playerSelection) - changeVal(computerSelection));
     if (value === 0) {
-        result = ("Tie.");
+        result += ("\nTie.");
     } else if (value === 2 || value === -1){
         scorePlayer++;
-        result = ("Player wins!");
+        result += ("\nPlayer wins this round!");
     } else if (value === 1 || value === -2) {
         scoreComputer++;
-        result = ("Computer wins!");
+        result += ("\nComputer wins this round!");
     }
 
-    let displayedResults = document.createElement('div');
-
-    displayedResults.textContent = result;
-    results.appendChild(displayedResults);
+    roundResults.textContent = result
 }
 
+function displayScore() {
+    let bothScores = ''
+    bothScores = ("Player Score: " + scorePlayer + " Computer Score: " + scoreComputer);
 
-for (let button of buttons) {
-    button.addEventListener('click', function(e) {
-        playOneRound(button.className);
+    scores.textContent = bothScores;
+
+}
+
+function keepScore() {
+    let finalResult = ''
+    if (scorePlayer === 5) {
+        finalResult = ("Player wins with a score of 5!")
+    } else if (scoreComputer === 5) {
+        finalResult = ("Computer wins with a score of 5!")
+    }
+
+    finalWinner.textContent = finalResult;
+}
+
+function resetGame(){
+    buttons.forEach ((button) => {
+        button.setAttribute('disabled', '')
+    })
+    reset.style.visibility = 'visible'
+    playAgainBtn.addEventListener('click', () => {
+        window.location.reload()
     })
 }
 
-//create playGame function
-/*
-function playGame() {
-    alert("Let's play 5 rounds of rock paper scissors!");
-    scorePlayer = 0;
-    scoreComputer = 0;
-    for (x = 1; x <= 5; x++) {
-        console.log(playOneRound());
-        console.log("Player Score: " + scorePlayer);
-        console.log("Computer Score: " + scoreComputer);
-    } 
-    if (scorePlayer > scoreComputer) {
-        console.log("Player wins with a score of " + scorePlayer + "!");
-    } else if (scoreComputer > scorePlayer) {
-        console.log("Computer wins with a score of " + scoreComputer + "!");
-    } else if (scoreComputer === scorePlayer) {
-        console.log("Both the Player and the Computer tie with a score of " + scorePlayer + "!");
-    }
-}*/
+for (let button of buttons) {
+    button.addEventListener('click', function() {
+        playOneRound(button.className);
+        displayScore();
+        if (scorePlayer === 5 || scoreComputer === 5) {
+            keepScore()
+            resetGame()
+        }
+    }, false)
+}
+

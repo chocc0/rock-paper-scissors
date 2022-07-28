@@ -12,6 +12,7 @@ const playAgainBtn = document.querySelector('.playAgain')
 
 let scorePlayer = 0,
     scoreComputer = 0;
+finalWinner.style.visibility = 'hidden'
 reset.style.visibility = 'hidden'
 
 //create computerChoice function
@@ -70,12 +71,13 @@ function displayScore() {
 function keepScore() {
     let finalResult = ''
     if (scorePlayer === 5) {
-        finalResult = ("Player wins with a score of 5!")
+        finalResult = ("Player wins the game!")
     } else if (scoreComputer === 5) {
-        finalResult = ("Computer wins with a score of 5!")
+        finalResult = ("Computer wins the game!")
     }
 
     finalWinner.textContent = finalResult;
+    finalWinner.style.visibility = 'visible';
 }
 
 function resetGame(){

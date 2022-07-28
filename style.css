@@ -1,3 +1,113 @@
+/* Colors I'm using*/
 * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
     font-size: 30px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+}
+
+#heading {
+    padding: 35px;
+    font-size: 60px;
+    margin: 0px;
+    background-color: rgb(81, 73, 58);
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+#intro {
+    margin: 30px 60px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+#choices {
+    height: 750px;
+    width: 750px;
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+button {
+    background-color: rgba(255, 255, 255, 0);
+    border: none
+}
+
+button img {
+    display: flex;
+    background: white;
+    height: 250px;
+    width: 250px;
+    border: 10px solid rgb(0, 0, 0);
+    padding: 40px;
+    border-radius: 100px;
+    transition: all 0.25s ease;
+}
+
+/*ROCK BUTTON*/
+button.Rock img{
+    filter: hue-rotate(170deg);
+}
+
+#rockimage {
+    border-color: rgb(152, 173, 255);
+}
+
+button.Rock img:hover {
+    box-shadow: 0 0 40px rgb(152, 173, 255);
+}
+
+/*PAPER BUTTON*/
+button.Paper{
+    align-self: flex-start;
+}
+
+#paperimage {
+    border-color: rgb(83, 152, 230);
+}
+
+button.Paper img:hover {
+    box-shadow: 0 0 40px rgb(83, 152, 230);
+}
+
+/*SCISSORS BUTTON*/
+button.Scissors img {
+    border-color: rgb(244, 112, 149);
+}
+
+#scissorsimage {
+    filter: hue-rotate(-25deg);
+}
+
+button.Scissors img:hover {
+    box-shadow: 0 0 40px rgb(244, 112, 149);
+}
+
+a {
+    color: white;
+}
+
+#credits {
+    padding: 10px;
+    bottom: 0;
+    font-size: 12px;
+    background-color: rgb(81, 73, 58);
+    width: 100%;
+    text-align: center;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
 }

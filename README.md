@@ -6,3 +6,5 @@ What I did in the first phase:
 Second Phase:
 - Learned about transitions, hover, and focus
 - Implemented UI, reworking nearly all of my JS code
+
+Live Preview --> https://chocc0.github.io/rock-paper-scissors/index.html

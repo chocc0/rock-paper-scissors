@@ -45,7 +45,7 @@ function changeVal(value) {
 function playOneRound(playerSelection) {
     computerSelection = computerChoice();
     let result = '';
-    result = ("User plays " + playerSelection + ". Computer plays " + computerSelection + ".");
+    result = ("Computer plays " + computerSelection + ".");
     let value = (changeVal(playerSelection) - changeVal(computerSelection));
     if (value === 0) {
         result += ("\nTie.");
@@ -65,7 +65,6 @@ function displayScore() {
     bothScores = ("Player Score: " + scorePlayer + " Computer Score: " + scoreComputer);
 
     scores.textContent = bothScores;
-
 }
 
 function keepScore() {

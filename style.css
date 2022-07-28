@@ -22,6 +22,7 @@ body {
     color: white;
     text-align: center;
     width: 100%;
+    text-decoration: underline;
 }
 
 #intro {
@@ -29,7 +30,7 @@ body {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 
 #choices {
@@ -41,6 +42,8 @@ body {
     align-items: flex-end;
 }
 
+/*----------------BUTTONS----------------*/
+
 button {
     background-color: rgba(255, 255, 255, 0);
     border: none
@@ -48,7 +51,7 @@ button {
 
 button img {
     display: flex;
-    background: white;
+    background-color: white;
     height: 250px;
     width: 250px;
     border: 10px solid rgb(0, 0, 0);
@@ -68,6 +71,12 @@ button.Rock img{
 
 button.Rock img:hover {
     box-shadow: 0 0 40px rgb(152, 173, 255);
+    background-color: rgb(237, 241, 255);
+}
+
+#rockimage:focus {
+    box-shadow: 0 0 40px rgb(152, 173, 255);
+    background-color: rgb(237, 241, 255);
 }
 
 /*PAPER BUTTON*/
@@ -76,11 +85,17 @@ button.Paper{
 }
 
 #paperimage {
-    border-color: rgb(83, 152, 230);
+    border-color: rgb(52, 181, 232);
 }
 
 button.Paper img:hover {
-    box-shadow: 0 0 40px rgb(83, 152, 230);
+    box-shadow: 0 0 40px rgb(52, 181, 232);
+    background-color: rgb(239, 249, 255);
+}
+
+#paperimage:focus {
+    box-shadow: 0 0 40px rgb(52, 181, 232);
+    background-color: rgb(239, 249, 255);
 }
 
 /*SCISSORS BUTTON*/
@@ -94,7 +109,52 @@ button.Scissors img {
 
 button.Scissors img:hover {
     box-shadow: 0 0 40px rgb(244, 112, 149);
+    background-color: rgb(255, 240, 245);
 }
+
+#scissorsimage:focus {
+    box-shadow: 0 0 40px rgb(244, 112, 149);
+    background-color: rgb(255, 240, 245);
+}
+
+/*---------------RESULTS-----------------*/
+#results {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 15px;
+    margin: 15px;
+}
+
+.scores {
+    text-decoration: underline;
+    margin: 50px 0px;
+}
+
+.finalWinner {
+    font-weight: bold;
+    padding: 10px;
+    background: linear-gradient(to right, #fff0f5 0%, #fffbed 50%, #eff9ff 100%);
+    border: 3px solid rgb(81, 73, 58);
+}
+
+/*---------------RESET-------------------*/
+
+button.playAgain {
+    background-color: rgb(81, 73, 58);
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    margin: 30px;
+    border: 2px solid black;
+    border-radius: 12px;
+    transition: all 0.25s ease;
+}
+
+button.playAgain:hover {
+    background-color: rgb(33, 28, 21);
+}
+
+/*---------------CREDITS-----------------*/
 
 a {
     color: white;

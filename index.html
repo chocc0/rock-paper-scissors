@@ -6,23 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./game.js" defer></script>
     <link rel = "stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">    
+
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div id = 'heading'>
-        <div>
-            Let's play rock paper scissors!
-            First one to 5 points wins!
-        </div>
+    <div id = 'heading'> 
+        <div>Rock Paper Scissors!</div>
+    </div>
+
+    <div id = 'intro'>
+        <div>Let's play rock paper scissors!</div>
+        <div>First one to 5 points wins!</div>
     </div>
 
     <div id = 'choices'>
-        <button class = 'Rock'>Rock</button>
-        <button class = 'Paper'>Paper</button>
-        <button class = 'Scissors'>Scissors</button>
+        <button class = 'Rock'><img id = 'rockimage' src = "./images/rock.png"></button>
+        <button class = 'Paper'><img id = 'paperimage' src = "./images/paper.png"></button>
+        <button class = 'Scissors'><img id = 'scissorsimage' src = "./images/scissors.png"></button>
     </div>
 
-    <div>Results:</div>
+    <div id = 'results'>Results:</div>
         <div class = 'roundResults'></div>
         <div class = 'scores'></div>
         <div class = 'finalWinner'></div>
@@ -30,6 +36,12 @@
 
     <div id = 'reset'>
         <button class = "playAgain">Play Again?</button>
+    </div>
+
+    <div id = "credits">
+        <a href="https://www.flaticon.com/free-icons/paper" title="paper icons">Paper icons created by Freepik - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/scissors" title="scissors icons">Scissors icons created by Freepik - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/rock" title="rock icons">Rock icons created by Freepik - Flaticon</a>
     </div>
 </body>
 </html>

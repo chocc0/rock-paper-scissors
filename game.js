@@ -1,7 +1,6 @@
 //UI references
 
 const buttons = document.querySelectorAll('#choices>button');
-const choices = document.getElementById('choices');
 const roundResults = document.querySelector('.roundResults');
 const scores = document.querySelector('.scores');
 const finalWinner = document.querySelector('.finalWinner');
